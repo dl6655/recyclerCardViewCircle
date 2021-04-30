@@ -12,7 +12,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycle"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="320dp"
         android:layout_gravity="center_vertical"
        >
     </androidx.recyclerview.widget.RecyclerView>
@@ -23,16 +23,16 @@
         android:layout_gravity="bottom|start"
         android:layout_margin="@dimen/fab_margin"
         android:text="pre"
-        tools:ignore="ContentDescription" />
+        />
 
     <Button
         android:id="@+id/btn_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
+        android:layout_gravity="bottom|center"
         android:layout_margin="@dimen/fab_margin"
         android:text="next"
-        tools:ignore="ContentDescription" />
+         />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 

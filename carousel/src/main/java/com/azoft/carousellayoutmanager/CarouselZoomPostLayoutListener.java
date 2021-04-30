@@ -15,8 +15,8 @@ public class CarouselZoomPostLayoutListener extends CarouselLayoutManager.PostLa
     private final float mScaleMultiplier;
 
     public CarouselZoomPostLayoutListener() {
-//        this(0.27f);
-        this(0.17f);
+//        this(0.17f);
+        this(0.09f);
     }
 
     public CarouselZoomPostLayoutListener(final float scaleMultiplier) {
@@ -26,7 +26,6 @@ public class CarouselZoomPostLayoutListener extends CarouselLayoutManager.PostLa
     @Override
     public ItemTransformation transformChild(@NonNull final View child, final float itemPositionToCenterDiff, final int orientation) {
         final float scale = 1.0f - mScaleMultiplier * Math.abs(itemPositionToCenterDiff);
-
         // because scaling will make view smaller in its center, then we should move this item to the top or bottom to make it visible
         final float translateY;
         final float translateX;
@@ -35,14 +34,14 @@ public class CarouselZoomPostLayoutListener extends CarouselLayoutManager.PostLa
             translateY = Math.signum(itemPositionToCenterDiff) * translateYGeneral;
             translateX = 0;
         } else {
-            final float translateXGeneral = child.getMeasuredWidth() * (1 - scale) / 2f;
-            translateX = Math.signum(itemPositionToCenterDiff) * translateXGeneral;
+            final float translateXGeneral = child.getMeasuredWidth()* (1 - scale) / 0.6f;
+//            final float translateXGeneral = child.getMeasuredWidth() * (1 - scale) / 2f;
+            translateX = Math.signum(itemPositionToCenterDiff) * translateXGeneral ;
             translateY = 0;
-            Log.i("aaaa","transformChild scale= "+scale+
-                    ",itemPositionToCenterDiff="+itemPositionToCenterDiff+
-                    ",mScaleMultiplier="+mScaleMultiplier);
         }
-
+//        if(Math.abs(itemPositionToCenterDiff) == 1){
+//            return new ItemTransformation(scale, scale, translateX/10, translateY);
+//        }
         return new ItemTransformation(scale, scale, translateX, translateY);
     }
 }

@@ -1,13 +1,9 @@
 package com.azoft.carousellayoutmanager.sample;
 
-//import android.support.annotation.NonNull;
 
 import android.os.Bundle;
-//import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,9 +20,6 @@ import java.util.HashMap;
 import java.util.List;
 
 public class CardViewActivity extends AppCompatActivity {
-    //    private String[] names = new String[]{};
-    private String[] names = {"德玛西亚", "盖伦", "今日讲解", "今日说法", "宋朝那些事", "王者荣耀", "优酷牛人", "天下第一哦", "红楼梦"};
-
     RecyclerView recyclerView;
     CardViewAdapter adapter;
     List<HashMap<String, String>> adapterList = new ArrayList<>();
@@ -35,7 +28,6 @@ public class CardViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_recycler_cardview);
         final ActivityRecyclerCardviewBinding binding = ActivityRecyclerCardviewBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         initViews();
@@ -60,20 +52,15 @@ public class CardViewActivity extends AppCompatActivity {
 
     void initViews() {
         for (int i = 0; i < 100; i++) {
-//        for (int i = 0; i < 5; i++) {
             HashMap<String, String> map = new HashMap<>();
             map.put("name", i + "");
-//            map.put("name", names[i]);
             adapterList.add(map);
         }
         recyclerView = findViewById(R.id.recycle);
         adapter = new CardViewAdapter(adapterList);
-        //使用方法和普通的LayoutManager一样
         CarouselLayoutManager layoutManager = new CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL);
         layoutManager.setPostLayoutListener(new CarouselZoomPostLayoutListener());
-        //这个是设置除了中间最大的子view外，两边最多能显示的子view的个数
-        layoutManager.setMaxVisibleItems(2);
-        //设置item的滑动监听，返回当前滑动到的某一项（最大的那一项）
+        layoutManager.setMaxVisibleItems(4);
         layoutManager.addOnItemSelectionListener(new CarouselLayoutManager.OnCenterItemSelectionListener() {
             @Override
             public void onCenterItemChanged(int adapterPosition) {
@@ -85,8 +72,7 @@ public class CardViewActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
         recyclerView.addOnScrollListener(new CenterScrollListener());
-        //设置这个主要是为了好看，使数据默认居中（可以在第一次显示数据时使用）
-//        recyclerView.scrollToPosition(adapterList.size() / 2);
+        recyclerView.scrollToPosition(adapterList.size() / 2);
         //设置item的点击
         adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
@@ -110,7 +96,7 @@ public class CardViewActivity extends AppCompatActivity {
             public void onCenterItemClicked(@NonNull RecyclerView recyclerView, @NonNull CarouselLayoutManager carouselLayoutManager, @NonNull View v) {
 
                 final int intposition = recyclerView.getChildLayoutPosition(v);
-                Toast.makeText(CardViewActivity.this, "我是中间项" + intposition + "\n" + names[2], Toast.LENGTH_SHORT).show();
+//                Toast.makeText(CardViewActivity.this, "我是中间项" + intposition + "\n" + "ding ding", Toast.LENGTH_SHORT).show();
 //                Toast.makeText(Main2Activity.this, "我是中间项" + intposition + "\n" + names[intposition], Toast.LENGTH_SHORT).show();
 
             }

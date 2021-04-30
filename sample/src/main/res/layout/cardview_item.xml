@@ -1,62 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_view"
-    android:layout_width="300dp"
-    android:layout_height="300dp"
+    android:layout_width="320dp"
+    android:layout_height="320dp"
     card_view:cardCornerRadius="8dp"
     card_view:cardElevation="8dp"
     card_view:cardMaxElevation="5dp"
-    card_view:cardPreventCornerOverlap="true">
+    card_view:cardPreventCornerOverlap="true"
+    >
 
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="300dp"
-        android:background="@color/colorPrimary">
+        android:layout_width="match_parent"
+        android:layout_height="320dp">
 
         <ImageView
             android:id="@+id/item_img"
-            android:layout_width="300dp"
-            android:layout_height="100dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
-            android:background="@color/colorAccent"
-            android:scaleType="centerCrop"
-            android:visibility="gone"
-            />
+            android:scaleType="centerCrop" />
 
-        <LinearLayout
-            android:layout_width="360dp"
-            android:layout_height="190dp"
-            android:layout_alignParentBottom="true"
-            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/item_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="21dp"
-                android:gravity="center"
-                android:text="1111111111"
-                android:textColor="#ffffff" />
+        <TextView
+            android:id="@+id/item_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:gravity="right"
+            android:textColor="@color/textColor" />
 
-            <TextView
-                android:id="@+id/item_content"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="17dp"
-                android:gravity="center"
-                android:text="1111111111"
-                android:textColor="#b1b1b1" />
+        <TextView
+            android:id="@+id/item_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom|center"
+            android:padding="10dp"
+            android:textColor="@color/textColor" />
 
-            <ImageView
-                android:id="@+id/item_start"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center_horizontal"
-                android:src="@mipmap/ic_launcher" />
-        </LinearLayout>
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

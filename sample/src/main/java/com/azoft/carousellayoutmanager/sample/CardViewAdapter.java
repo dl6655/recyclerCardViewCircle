@@ -32,7 +32,8 @@ public class CardViewAdapter extends BaseQuickAdapter<HashMap<String, String>, B
     @Override
     protected void convert(BaseViewHolder helper, HashMap<String, String> item) {
         helper.setText(R.id.item_name, item.get("name"));
-
+        helper.setImageResource(R.id.item_img, R.mipmap.img1);
+        helper.setText(R.id.item_content, item.get("name"));
     }
 
     @Override
